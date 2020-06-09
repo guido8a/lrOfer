@@ -486,25 +486,14 @@
     </div>
 
     <div id="imprimirTransporteDialog">
-
         <fieldset>
-
             <div class="span3">
-
                 Desea imprimir el reporte incluido transporte?
-
             </div>
-
         </fieldset>
-
-
     </div>
-
-
-
-
-
 </div>
+
 <script type="text/javascript">
     function agregar(id,tipo){
         var tipoItem=$("#item_id").attr("tipo")

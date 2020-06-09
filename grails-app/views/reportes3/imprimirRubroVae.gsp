@@ -1,31 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: fabricio
-  Date: 20/02/15
-  Time: 03:52 PM
---%>
-
-<%--
-  Created by IntelliJ IDEA.
-  User: fabricio
-  Date: 29/01/15
-  Time: 04:15 PM
---%>
-
-<%--
-  Created by IntelliJ IDEA.
-  User: fabricio
-  Date: 06/01/15
-  Time: 04:58 PM
---%>
-
-<%--
-  Created by IntelliJ IDEA.
-  User: luz
-  Date: 11/22/12
-  Time: 12:59 PM
-  To change this template use File | Settings | File Templates.
---%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
@@ -99,30 +71,21 @@
     }
 
     .theader {
-
         /*border: 1px solid #000000;*/
-        border-bottom: 1px solid #000000;
-
-
+        border-bottom: 1px solid #000000
     }
 
     .theaderup {
-
         /*border: 1px solid #000000;*/
         border-top: 1px solid #000000;
-
-
     }
 
     .padTopBot{
-
         padding-top: 7px !important;
         padding-bottom: 7px !important;
-
     }
 
     .marginTop{
-
         margin-top:20px !important;
     }
 
@@ -130,15 +93,9 @@
         font-size: 14px !important;
     }
 
-
-
-
     thead th{
-
         background : #FFFFFF !important;
         color: #000000 !important;
-
-
     }
 
     .row-fluid {
@@ -163,8 +120,6 @@
         float  : left;
         height : 100%;
     }
-
-
     </style>
 </head>
 
@@ -208,18 +163,17 @@
 
     <div style="width: 100%">
 
-        ${tablaHer}
-        ${tablaMano}
-        ${tablaMat}
+        <elm:poneHtml textoHtml="${tablaHer}"/>
+        <elm:poneHtml textoHtml="${tablaMano}"/>
+        <elm:poneHtml textoHtml="${tablaMat}"/>
         <g:if test="${bandMat != 1}">
-            ${tablaMat2}
+            <elm:poneHtml textoHtml="${tablaMat2}"/>
         </g:if>
-        ${tablaTrans}
+        <elm:poneHtml textoHtml="${tablaTrans}"/>
         <g:if test="${band == 0 && bandTrans == '1'}">
-
-            ${tablaTrans2}
+            <elm:poneHtml textoHtml="${tablaTrans2}"/>
         </g:if>
-        ${tablaIndi}
+        <elm:poneHtml textoHtml="${tablaIndi}"/>
         <table class="table table-bordered table-striped table-condensed table-hover" style="margin-top: 25px; width: 600px;float: right;  border-top: 1px solid #000000;  border-bottom: 1px solid #000000;">
             <tbody>
             <tr>
@@ -301,7 +255,7 @@
         <b>Nota:</b> Los cálculos se hacen con todos los decimales y el resultado final se lo redondea a dos decimales, estos precios no incluyen IVA.
 
         <p style="font-size: 11pt; text-align: left">
-            <b>Quito, ${fechaEntregaOFerta}</b>
+            <b>Babahoyo, ${fechaEntregaOFerta}</b>
         </p>
         <p style="font-size: 11pt; text-align: left; margin-top: 60px">
             <b>__________________________</b>

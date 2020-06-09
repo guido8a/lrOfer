@@ -806,7 +806,7 @@ class Reportes2Controller {
         addCellTabla(pieTabla, new Paragraph(" ", fontTh), [border: Color.WHITE, align: Element.ALIGN_LEFT, valign: Element.ALIGN_LEFT])
         addCellTabla(pieTabla, new Paragraph(" ", fontTh), [border: Color.WHITE, align: Element.ALIGN_LEFT, valign: Element.ALIGN_LEFT])
 
-        addCellTabla(pieTabla, new Paragraph("Quito, " + printFecha(obra?.fechaOferta), fontTh2), [border: Color.WHITE, align: Element.ALIGN_LEFT, valign: Element.ALIGN_LEFT])
+        addCellTabla(pieTabla, new Paragraph("Babahoyo, " + printFecha(obra?.fechaOferta), fontTh2), [border: Color.WHITE, align: Element.ALIGN_LEFT, valign: Element.ALIGN_LEFT])
         addCellTabla(pieTabla, new Paragraph(" ", fontTh), [border: Color.WHITE, align: Element.ALIGN_LEFT, valign: Element.ALIGN_LEFT])
 
         addCellTabla(pieTabla, new Paragraph(" ", fontTh), [border: Color.WHITE, align: Element.ALIGN_LEFT, valign: Element.ALIGN_LEFT])

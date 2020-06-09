@@ -1663,7 +1663,7 @@ class ReportesController {
             addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
             addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
 
-            addCellTabla(pieTabla, new Paragraph("Quito, " + printFecha(obra?.fechaOferta), fonts.times10bold), prmsHeaderHojaLeft)
+            addCellTabla(pieTabla, new Paragraph("Babahoyo, " + printFecha(obra?.fechaOferta), fonts.times10bold), prmsHeaderHojaLeft)
             addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
 
             addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
@@ -1973,7 +1973,7 @@ class ReportesController {
             addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
             addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
 
-            addCellTabla(pieTabla, new Paragraph("Quito, " + printFecha(obra?.fechaOferta), fonts.times10bold), prmsHeaderHojaLeft)
+            addCellTabla(pieTabla, new Paragraph("Babahoyo, " + printFecha(obra?.fechaOferta), fonts.times10bold), prmsHeaderHojaLeft)
             addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
 
             addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
@@ -3019,6 +3019,7 @@ class ReportesController {
         def obra = Obra.get(params.id)
 
         def oferente = Persona.get(params.oferente)
+        def auxiliar = Auxiliar.get(1)
 
         def sql = "SELECT * FROM cncr WHERE obra__id=${obra?.idJanus}"
 
@@ -3093,24 +3094,17 @@ class ReportesController {
         sheet.setColumnView(5, 25)
         sheet.setColumnView(6, 25)
 
-
         def label
         def number
         def nmro
         def numero = 1;
-
         def fila = 11;
-
         def ultimaFila
-
-
-
-
 
         label = new Label(2, 2, "NOMBRE DEL OFERENTE: " + oferente?.nombre.toUpperCase() + " " + oferente?.apellido.toUpperCase(), times16format); sheet.addCell(label);
         label = new Label(2, 3, "PROCESO: " + obra?.codigoConcurso, times16format); sheet.addCell(label);
         label = new Label(2, 4, "TABLA DE DESCRIPCIÓN DE RUBROS, UNIDADES, CANTIDADES Y PRECIOS", times16format); sheet.addCell(label);
-        label = new Label(2, 5, "GOBIERNO AUTÓNOMO DESCENTRALIZADO DE LA PROVINCIA DE PICHINCHA", times16format); sheet.addCell(label);
+        label = new Label(2, 5, (auxiliar?.titulo ?: ''), times16format); sheet.addCell(label);
         label = new Label(2, 6, "NOMBRE DEL PROYECTO: " + obra?.nombre.toUpperCase(), times16format); sheet.addCell(label);
 
         label = new Label(0, 10, "N°", times16format); sheet.addCell(label);
@@ -3144,19 +3138,13 @@ class ReportesController {
             number = new Number(7, fila, subtotal.round(2)); sheet.addCell(number);
 
             fila++
-
             totales = precios[it.id.toString()] * it.cantidad
-
             totalPresupuesto = (total1 += totales);
-
             ultimaFila = fila
-
         }
 
         label = new Label(6, ultimaFila, "TOTAL ", times16format); sheet.addCell(label);
         number = new Number(7, ultimaFila, totalPresupuesto.round(2)); sheet.addCell(number);
-
-
 
         workbook.write();
         workbook.close();
@@ -3165,21 +3153,14 @@ class ReportesController {
         response.setContentType("application/octet-stream")
         response.setHeader("Content-Disposition", header);
         output.write(file.getBytes());
-
-
     }
 
 
     def dummyReportes() {
-
         return false
-
     }
 
-
-
     def pagarAnticipoPdf() {
-
 
         def baos = new ByteArrayOutputStream()
         def name = "pagarAnticipo_" + new Date().format("ddMMyyyy_hhmm") + ".pdf";
@@ -3222,17 +3203,13 @@ class ReportesController {
                 prmsCellHead: prmsCellHead, prmsCell: prmsCellCenter, prmsCellLeft: prmsCellLeft, prmsSubtotal: prmsSubtotal, prmsNum: prmsNum]
 
         def planilla = janus.ejecucion.Planilla.get(params.id)
-
         def contrato = Contrato.get(planilla?.contrato?.id)
-
         def obra = Obra.get(contrato?.oferta?.concurso?.obra?.id)
-
         def suma = (planilla?.reajuste + planilla?.valor)
 
         PdfPTable headerRubroTabla = new PdfPTable(4); // 4 columns.
         headerRubroTabla.setWidthPercentage(100);
         headerRubroTabla.setWidths(arregloEnteros([10, 40, 10, 40]))
-
 
         addCellTabla(headerRubroTabla, new Paragraph("Obra:", times8bold), prmsHeaderHoja)
         addCellTabla(headerRubroTabla, new Paragraph(obra?.nombre + " " + obra?.descripcion, times8normal), prmsHeaderHoja)
@@ -3275,7 +3252,6 @@ class ReportesController {
         anticipoTabla.setWidths(arregloEnteros([50, 50]))
 
         if (planilla?.tipoPlanilla?.codigo == 'A') {
-
             addCellTabla(anticipoTabla, new Paragraph(contrato?.porcentajeAnticipo + " % de anticipo:", times8bold), prmsHeaderHoja)
 
             addCellTabla(anticipoTabla, new Paragraph(g.formatNumber(number: planilla?.valor, minFractionDigits: 2, maxFractionDigits: 2, format: "##,##0", locale: "ec"), fonts.times8normal), prmsHeaderHoja)
@@ -3290,7 +3266,6 @@ class ReportesController {
 
             addCellTabla(anticipoTabla, new Paragraph("A FAVOR DEL CONTRATISTA:", times8bold), prmsHeaderHoja)
             addCellTabla(anticipoTabla, new Paragraph(g.formatNumber(number: suma, minFractionDigits: 2, maxFractionDigits: 2, format: "##,##0", locale: "ec"), fonts.times8normal), prmsHeaderHoja)
-
 
         } else {
 
@@ -3323,8 +3298,6 @@ class ReportesController {
         response.setHeader("Content-disposition", "attachment; filename=" + name)
         response.setContentLength(b.length)
         response.getOutputStream().write(b)
-
-
     }
 
 

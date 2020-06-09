@@ -47,9 +47,8 @@ class Reportes3Controller {
         def detalle
         def subPre
         def orden
-
         def fechaHoy = printFecha(new Date())
-
+        def auxiliar = Auxiliar.get(1)
         def oferente = Persona.get(params.oferente)
 
         def sql = "SELECT * FROM cncr WHERE obra__id=${obra?.idJanus}"
@@ -132,7 +131,7 @@ class Reportes3Controller {
 //            precios.put(it.id.toString(),(precio+precio*indirecto).toDouble().round(2))
 //        }
 
-        [detalle:detalle,precios:precios,subPres:subPres,subPre:subPre,obra: obra,indirectos:indirecto*100, oferente: oferente, fechaHoy: fechaHoy, concurso: concurso, fechaOferta: fechaOferta, firma: firma]
+        [auxiliar:auxiliar, detalle:detalle,precios:precios,subPres:subPres,subPre:subPre,obra: obra,indirectos:indirecto*100, oferente: oferente, fechaHoy: fechaHoy, concurso: concurso, fechaOferta: fechaOferta, firma: firma]
 
     }
 
@@ -145,6 +144,7 @@ class Reportes3Controller {
         def fechaHoy = printFecha(new Date())
         def oferente = Persona.get(params.oferente)
         def sql = "SELECT * FROM cncr WHERE obra__id=${obra?.idJanus}"
+        def auxiliar = Auxiliar.get(1)
 
 
         def cn = dbConnectionService.getConnection()
@@ -185,7 +185,7 @@ class Reportes3Controller {
 
         def indirecto = obra.totales/100
 
-        [detalle:detalle,precios:precios,subPres:subPres,subPre:subPre,obra: obra,indirectos:indirecto*100, oferente: oferente, fechaHoy: fechaHoy, concurso: concurso, fechaOferta: fechaOferta, firma: firma]
+        [auxiliar: auxiliar, detalle:detalle,precios:precios,subPres:subPres,subPre:subPre,obra: obra,indirectos:indirecto*100, oferente: oferente, fechaHoy: fechaHoy, concurso: concurso, fechaOferta: fechaOferta, firma: firma]
 
     }
 
@@ -2353,7 +2353,7 @@ def reporteFormula () {
     addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
     addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
 
-    addCellTabla(pieTabla, new Paragraph("Quito, " + printFecha(obra?.fechaOferta), fonts.times10bold), prmsHeaderHojaLeft)
+    addCellTabla(pieTabla, new Paragraph("Babahoyo, " + printFecha(obra?.fechaOferta), fonts.times10bold), prmsHeaderHojaLeft)
     addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)
 
     addCellTabla(pieTabla, new Paragraph(" ", fonts.times8normal), prmsHeaderHojaLeft)

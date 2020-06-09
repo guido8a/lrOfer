@@ -10,35 +10,34 @@
             </thead>
             <tbody id="paginate">
             <g:each var="reg" in="${lista}" status="i">
-                <g:set var="propiedades" value=""></g:set>
+                <g:set var="propiedades" value=""/>
                 <tr style="font-size: 10px !important;">
                     <td style="text-align: right;width: 40px">
-                        <div  style="float: right; margin-right: 5px;" class="ok btnpq ui-state-default ui-corner-all" id="reg_${i}" regId="${reg?.id}" txtReg="${reg.toString()}"  ${propiedades}>
+                        <div  style="float: right; margin-right: 5px;" class="ok btn btn-success btnpq ui-state-default ui-corner-all" id="reg_${i}" regId="${reg?.id}" txtReg="${reg.toString()}"  ${propiedades}>
                             <span class="ui-icon ui-icon-circle-check"></span>
                         </div>
                     </td>
                     <g:each in="${listaCampos}" var="nombre" status="j">
-                        <g:set var="propiedades" value="${propiedades+=" prop_"+nombre+"='"+reg.properties[nombre]+"'"}"></g:set>
+                        <g:set var="propiedades" value="${propiedades+=" prop_"+nombre+"='"+reg.properties[nombre]+"'"}"/>
                         <g:if test="${funciones}">
                             <g:if test="${funciones[j]}">
-                                <g:set var="prop" value="${bsc.operacion(propiedad:nombre,funcion:funciones[j],registro:reg)}"></g:set>
+                                <g:set var="prop" value="${bsc.operacion(propiedad:nombre,funcion:funciones[j],registro:reg)}"/>
                             </g:if>
                             <g:else>
-                                <g:set var="prop" value="${reg.properties[nombre]}"></g:set>
+                                <g:set var="prop" value="${reg.properties[nombre]}"/>
                             </g:else>
                         </g:if>
                         <g:else>
-                            <g:set var="prop" value="${reg.properties[nombre]}"></g:set>
+                            <g:set var="prop" value="${reg.properties[nombre]}"/>
                         </g:else>
                         <td>
-                            ${prop}
+                            <elm:poneHtml textoHtml="${prop}"/>
                         </td>
                     </g:each>
                     <input type="hidden" class="props" ${propiedades}>
                     <script type="text/javascript">
                         $("#reg_${i}")
                     </script>
-
                 </tr>
             </g:each>
             </tbody>
@@ -46,7 +45,7 @@
     </div>
     <script type="text/javascript">
         <g:if test="${funcionJs}">
-        $(".ok").click(${funcionJs});
+        <elm:funcionOk funcion="${funcionJs}"/>
         </g:if>
         <g:else>
         $(".ok").click(function() {
@@ -58,7 +57,6 @@
 
         });
         </g:else>
-
 
         function paginar(id,mostrar){
 

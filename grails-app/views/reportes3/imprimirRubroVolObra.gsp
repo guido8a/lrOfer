@@ -258,7 +258,7 @@
         <b>Nota:</b> Los cálculos se hacen con todos los decimales y el resultado final se lo redondea a dos decimales, estos precios no incluyen IVA.
 
         <p style="font-size: 12pt; text-align: left">
-            <b>Quito, ${fechaEntregaOferta}</b>
+            <b>Babahoyo, ${fechaEntregaOferta}</b>
         </p>
         <p style="font-size: 12pt; text-align: left; margin-top: 60px">
             <b>__________________________</b>
@@ -537,7 +537,7 @@ To change this template use File | Settings | File Templates.
 %{--<b>Nota:</b> Los cálculos se hacen con todos los decimales y el resultado final se lo redondea a dos decimales, estos precios no incluyen IVA.--}%
 
 %{--<p style="font-size: 12pt; text-align: left">--}%
-%{--<b>Quito, ${fechaEntregaOferta}</b>--}%
+%{--<b>Babahoyo, ${fechaEntregaOferta}</b>--}%
 %{--</p>--}%
 %{--<p style="font-size: 12pt; text-align: left; margin-top: 60px">--}%
 %{--<b>__________________________</b>--}%

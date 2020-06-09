@@ -135,12 +135,9 @@
 <div class="hoja" style="margin-bottom: 40px">
 
     <div class="tituloPdf" style="margin-bottom: 100px !important">
-
-
         <p style="font-size: 14px">
             <b> Formulario N° 2 </b>
         </p>
-
         <p style="font-size: 14px; text-align: left">
             <b> NOMBRE DEL OFERENTE: </b> ${oferente?.nombre?.toUpperCase() + " " + oferente?.apellido?.toUpperCase()}
         </p>
@@ -151,21 +148,18 @@
             <b> TABLA DE DESCRIPCIÓN DE RUBROS, UNIDADES, CANTIDADES Y PRECIOS </b>
         </p>
         <p style="font-size: 14px; text-align: left">
-            <b>GOBIERNO AUTÓNOMO DESCENTRALIZADO DE LA PROVINCIA DE PICHINCHA</b>
+            <b>${auxiliar?.titulo?.toUpperCase()}</b>
         </p>
         <p style="font-size: 14px; text-align: left; margin-bottom: 80px">
             <b>NOMBRE DEL PROYECTO:</b> ${obra?.nombre.toUpperCase()}
         </p>
-
     </div>
 
-
-
-    <g:set var="total1" value="${0}"></g:set>
-    <g:set var="total2" value="${0}"></g:set>
-    <g:set var="totalPrueba" value="${0}"></g:set>
-    <g:set var="totales" value="${0}"></g:set>
-    <g:set var="totalPresupuesto" value="${0}"></g:set>
+    <g:set var="total1" value="${0}"/>
+    <g:set var="total2" value="${0}"/>
+    <g:set var="totalPrueba" value="${0}"/>
+    <g:set var="totales" value="${0}"/>
+    <g:set var="totalPresupuesto" value="${0}"/>
     <g:if test="${subPre == -1}">
         <g:each in="${subPres}" var="sp" status="sub">
             <div style="font-size: 12px; font-weight: bold">${sp.descripcion}</div>
@@ -264,13 +258,12 @@
 
                 <p style="font-size: 14px; text-align: left">
                     <g:set var="valor" value="${totalPresupuesto.toDouble().round(2)}"/>
-                    PRECIO TOTAL DE LA OFERTA USD <b><elm:numberToLetter numero="${valor}" dolares="true"/></b>, MÁS IVA.
-
+%{--                    <g:set var="valor" value="${g.formatNumber(number: (totalPresupuesto), maxFractionDigits: 2, minFractionDigits: 2, format: '###,##0', locale: 'en')}"/>--}%
+                    PRECIO TOTAL DE LA OFERTA USD <b><elm:numberToLetter numero="${totalPresupuesto}" dolares="true"/></b>, MÁS IVA.
                 </p>
 
-
                 <p style="font-size: 14px; text-align: left; margin-top: 40px; margin-bottom: 60px">
-                    <b>Quito, ${fechaOferta}</b>
+                    <b>Babahoyo, ${fechaOferta}</b>
                 </p>
 
                 <p style="text-align: left">
@@ -284,12 +277,8 @@
                     <g:else>
                         FIRMA DEL RESPONSABLE
                     </g:else>
-
                 </p>
-
             </div>
-
-
     </g:if>
 
     <g:else>
@@ -357,13 +346,13 @@
 
             <p style="font-size: 14px; text-align: left">
                 <g:set var="valor" value="${total.toDouble().round(2)}"/>
-                PRECIO TOTAL DE LA OFERTA USD <b><elm:numberToLetter numero="${valor}" dolares="true"/></b>, MÁS IVA.
+%{--                PRECIO TOTAL DE LA OFERTA USD <b><elm:numberToLetter numero="${valor}" dolares="true"/></b>, MÁS IVA.--}%
 
             </p>
 
 
             <p style="font-size: 14px; text-align: left; margin-top: 40px; margin-bottom: 60px">
-                Quito,
+                Babahoyo,
             </p>
 
             <p style="text-align: left">

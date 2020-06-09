@@ -159,7 +159,7 @@
             <b> TABLA DE DESCRIPCIÓN DE RUBROS, UNIDADES, CANTIDADES Y PRECIOS </b>
         </p>
         <p style="font-size: 14px; text-align: left">
-            <b>GOBIERNO AUTÓNOMO DESCENTRALIZADO DE LA PROVINCIA DE PICHINCHA</b>
+            <b>${auxiliar?.titulo?.toUpperCase()}</b>
         </p>
         <p style="font-size: 14px; text-align: left; margin-bottom: 80px">
             <b>NOMBRE DEL PROYECTO:</b> ${obra?.nombre.toUpperCase()}
@@ -307,7 +307,7 @@
                 PRECIO TOTAL DE LA OFERTA USD <b><elm:numberToLetter numero="${valor}" dolares="true"/></b>, MÁS IVA.
             </p>
             <p style="font-size: 14px; text-align: left; margin-top: 40px; margin-bottom: 60px">
-                <b>Quito, ${fechaOferta}</b>
+                <b>Babahoyo, ${fechaOferta}</b>
             </p>
 
             <p style="text-align: left">
@@ -417,7 +417,7 @@
 
 
             <p style="font-size: 14px; text-align: left; margin-top: 40px; margin-bottom: 60px">
-                Quito, <b>${fechaOferta}</b>
+                Babahoyo, <b>${fechaOferta}</b>
             </p>
 
             <p style="text-align: left">

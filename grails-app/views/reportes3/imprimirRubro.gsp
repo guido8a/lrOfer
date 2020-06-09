@@ -176,38 +176,29 @@
     </div>
 
     <div style="margin-top: 20px">
-
         <div class="row-fluid">
-            <div class="span12" style="margin-right: 195px !important; margin-top: 50px !important">
+            <div class="span12" style="margin-right: 5px !important; margin-top: 50px !important">
             <b>Proyecto:    </b>${obra?.nombre.toUpperCase()}
             </div>
-
         </div>
-        <div class="row-fluid" style="margin-top: 5px">
+        <div class="row-fluid" style="margin-top: 15px">
             <div>
                 <b style="margin-top: 5px">Rubro:   </b> ${rubro.nombre}
             </div>
         </div>
-        <div class="row-fluid" style="margin-top: 5px">
+        <div class="row-fluid" style="margin-top: 10px">
             <div>
                  <b style="margin-top: 5px">Unidad:  </b> ${rubro.unidad.codigo}
             </div>
         </div>
-
-
-
     </div>
 
     <div style="width: 100%;margin-top: 10px;">
 
-        ${tablaHer}
-        ${tablaMano}
-        ${tablaMat}
-        %{--<g:if test="${bandMat != 1}">--}%
-            %{--${tablaMat2}--}%
-        %{--</g:if>--}%
-        %{--${tablaTrans}--}%
-        ${tablaIndi}
+        <elm:poneHtml textoHtml="${tablaHer}"/>
+        <elm:poneHtml textoHtml="${tablaMano}"/>
+        <elm:poneHtml textoHtml="${tablaMat}"/>
+        <elm:poneHtml textoHtml="${tablaIndi}"/>
         <table class="table table-bordered table-striped table-condensed table-hover" style="margin-top: 40px;width: 50%;float: right; border-top: 1px solid #000000;  border-bottom: 1px solid #000000">
             <tbody>
             <tr style="">
@@ -253,7 +244,7 @@
         <b>Nota:</b> Los cálculos se hacen con todos los decimales y el resultado final se lo redondea a dos decimales, estos precios no incluyen IVA.
 
         <p style="font-size: 12pt; text-align: left">
-            <b>Quito, ${fechaEntregaOFerta}</b>
+            <b>Babahoyo, ${fechaEntregaOFerta}</b>
         </p>
          <p style="font-size: 12pt; text-align: left; margin-top: 60px">
             <b>__________________________</b>
