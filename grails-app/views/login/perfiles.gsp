@@ -24,7 +24,7 @@
         font-family: 'open sans condensed';
         font-weight: bold;
         text-shadow: -2px 2px 1px rgba(0, 0, 0, 0.25);
-        color: #0088CC;
+        color: #6a5830;
         margin-top: 20px;
     }
     </style>
@@ -37,11 +37,10 @@
     <div style="text-align: center;"><h1 class="titl" style="font-size: 26px;">SEP - GADPP</h1>
         <h1 class="titl" style="font-size: 20px;">SEGUIMIENTO Y EJECUCIÓN DE PROYECTOS DE OBRAS Y CONSULTORÍAS<br>
             GOBIERNO AUTÓNOMO DESCENTRALIZADO PROVINCIA DE PICHINCHA</h1>
-        <h1 class="titl" style="font-size: 24px; color: #06a">Registro de Ofertas en Línea</h1></div>
 
 
     <g:form class="well form-horizontal span" action="savePer" name="frmLogin"
-            style="border: 5px solid #2080B0; background:#c7c7c5;color: #939Aa2; width: 300px; margin-left: 240px; margin-top: 40px; position: relative; padding-left: 100px">
+            style="border: 5px solid #6a5830; background:#c7c7c5;color: #939Aa2; width: 300px; margin-left: 240px; margin-top: 40px; position: relative; padding-left: 100px">
         <p class="css-vertical-text tituloGrande"
            style="left: 12px;;font-family: 'Tulpen One',cursive;font-weight: bold;font-size: 35px; color:#334;">Sistema SEP-Oferentes</p>
 

@@ -118,7 +118,7 @@
     <div class="row-fluid">
         <div class="span12" style="color: #008">
             Porcentaje de costos indirectos
-            <input type="text" style="width: 40px; color: #008; text-align: right" id="costo_indi" value="${(obra)?obra.totales:'21'}">
+            <input type="text" style="width: 40px; color: #008; text-align: right" id="costo_indi" value="${(obra)?obra.totales:'20'}">
         </div>
     </div>
 
