@@ -2505,39 +2505,23 @@ class ReportesController {
         def obra = Obra.get(params.id)
 
         def sql = "SELECT * FROM cncr WHERE obra__id=${obra?.idJanus}"
-
-//        println("sql:" + sql)
-
         def cn = dbConnectionService.getConnection()
-
         def conc = cn.rows(sql.toString())
 
         def cncrId
 
         conc.each {
-
             cncrId = it?.cncr__id
-
         }
 
         def concurso = janus.pac.Concurso.get(cncrId)
-
-
         def auxiliar = Auxiliar.get(1)
-
 
         def prmsHeaderHoja = [border: Color.WHITE]
         def prmsHeaderHoja3 = [border: Color.WHITE, colspan: 2]
-
-
         def prmsHeaderHoja2 = [border: Color.WHITE, colspan: 9]
-
-
         def prmsHeader = [border: Color.WHITE, colspan: 7, bg: new Color(73, 175, 205),
                           align : Element.ALIGN_CENTER, valign: Element.ALIGN_MIDDLE]
-
-
-
         def prmsHeader2 = [border: Color.WHITE, colspan: 3, bg: new Color(73, 175, 205),
                            align : Element.ALIGN_CENTER, valign: Element.ALIGN_MIDDLE]
         def prmsCellHead = [border: Color.WHITE, bg: new Color(73, 175, 205),
@@ -2551,8 +2535,6 @@ class ReportesController {
 
         def prms = [prmsHeaderHoja: prmsHeaderHoja, prmsHeader: prmsHeader, prmsHeader2: prmsHeader2,
                 prmsCellHead: prmsCellHead, prmsCell: prmsCellCenter, prmsCellLeft: prmsCellLeft, prmsSubtotal: prmsSubtotal, prmsNum: prmsNum, prmsHeaderHoja2: prmsHeaderHoja2, prmsCellRight: prmsCellRight]
-
-
 
         def baos = new ByteArrayOutputStream()
         def name = "presupuesto_" + new Date().format("ddMMyyyy_hhmm") + ".pdf";
@@ -2580,19 +2562,16 @@ class ReportesController {
         document.addAuthor("Janus");
         document.addCreator("Tedein SA");
 
-
-
         Paragraph headers = new Paragraph();
         addEmptyLine(headers, 1);
         headers.setAlignment(Element.ALIGN_CENTER);
-        headers.add(new Paragraph("G.A.D. PROVINCIA PICHINCHA", times14bold));
+        headers.add(new Paragraph(auxiliar?.titulo ?: '', times14bold));
         headers.add(new Paragraph(" ", times10bold));
         headers.add(new Paragraph("PROCESO: " + obra?.codigoConcurso, times12bold));
         headers.add(new Paragraph(" ", times10bold));
         headers.add(new Paragraph("DATOS DE LA OBRA ", times12bold));
         headers.add(new Paragraph(" ", times10bold));
         document.add(headers)
-
 
         PdfPTable tablaCoeficiente = new PdfPTable(3);
         tablaCoeficiente.setWidthPercentage(100);

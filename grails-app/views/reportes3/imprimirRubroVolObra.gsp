@@ -163,18 +163,18 @@
 <div class="hoja">
 
     <div class="tituloPdf tituloHeader">
-    <p style="font-size: 12pt; text-align: center">
-    <b>Formulario N°4</b>
-    </p>
-    <p style="font-size: 12pt; text-align: left">
-    <b>NOMBRE DEL OFERENTE: ${oferente?.nombre.toUpperCase() + " " + oferente?.apellido.toUpperCase()}</b>
-    </p>
-    <p style="font-size: 12pt; text-align: center">
-    <b>PROCESO: ${obra?.codigoConcurso}</b>
-    </p>
-    <p style="font-size: 12pt; text-align: left">
-    <b>ANÁLISIS DE PRECIOS UNITARIOS</b>
-    </p>
+        <p style="font-size: 12pt; text-align: center">
+            <b>Formulario N°4</b>
+        </p>
+        <p style="font-size: 12pt; text-align: left">
+            <b>NOMBRE DEL OFERENTE: ${oferente?.nombre.toUpperCase() + " " + oferente?.apellido.toUpperCase()}</b>
+        </p>
+        <p style="font-size: 12pt; text-align: center">
+            <b>PROCESO: ${obra?.codigoConcurso}</b>
+        </p>
+        <p style="font-size: 12pt; text-align: left">
+            <b>ANÁLISIS DE PRECIOS UNITARIOS</b>
+        </p>
     </div>
 
 
@@ -182,20 +182,20 @@
     <div style="margin-top: 20px">
 
         <div class="row-fluid">
-        <div class="span12" style="margin-right: 195px !important; margin-top: 50px !important">
-        <b>Proyecto:    </b>${obra?.nombre.toUpperCase()}
-        </div>
+            <div class="span12" style="margin-right: 195px !important; margin-top: 50px !important">
+                <b>Proyecto:    </b>${obra?.nombre.toUpperCase()}
+            </div>
 
         </div>
         <div class="row-fluid" style="margin-top: 5px">
-        <div>
-        <b style="margin-top: 5px">Rubro:   </b> ${rubro.nombre}
-        </div>
+            <div>
+                <b style="margin-top: 5px">Rubro:   </b> ${rubro.nombre}
+            </div>
         </div>
         <div class="row-fluid" style="margin-top: 5px">
-        <div>
-        <b style="margin-top: 5px">Unidad:  </b> ${rubro.unidad.codigo}
-        </div>
+            <div>
+                <b style="margin-top: 5px">Unidad:  </b> ${rubro.unidad.codigo}
+            </div>
         </div>
 
 
@@ -204,18 +204,17 @@
 
     <div style="width: 100%">
 
-        ${tablaHer}
-        ${tablaMano}
-        ${tablaMat}
+        <elm:poneHtml textoHtml="${tablaHer}"/>
+        <elm:poneHtml textoHtml="${tablaMano}"/>
+        <elm:poneHtml textoHtml="${tablaMat}"/>
         <g:if test="${bandMat != 1}">
-            ${tablaMat2}
+            <elm:poneHtml textoHtml="${tablaMat2}"/>
         </g:if>
-        ${tablaTrans}
+        <elm:poneHtml textoHtml="${tablaTrans}"/>
         <g:if test="${band == 0 && bandTrans == '1'}">
-
-            ${tablaTrans2}
+            <elm:poneHtml textoHtml="${tablaTrans2}"/>
         </g:if>
-        ${tablaIndi}
+        <elm:poneHtml textoHtml="${tablaIndi}"/>
         <table class="table table-bordered table-striped table-condensed table-hover" style="margin-top: 40px;width: 50%;float: right;  border-top: 1px solid #000000;  border-bottom: 1px solid #000000">
             <tbody>
             <tr>
@@ -251,33 +250,25 @@
 
                 </td>
             </tr>
-
-
             </tbody>
         </table>
-
-
     </div>
 
     <div style="width: 100%;float: left;height: 20px;margin-top: 10px;text-align: left">
-    <b>Nota:</b> Los cálculos se hacen con todos los decimales y el resultado final se lo redondea a dos decimales, estos precios no incluyen IVA.
+        <b>Nota:</b> Los cálculos se hacen con todos los decimales y el resultado final se lo redondea a dos decimales, estos precios no incluyen IVA.
 
-    <p style="font-size: 12pt; text-align: left">
-    <b>Quito, ${fechaEntregaOferta}</b>
-    </p>
-    <p style="font-size: 12pt; text-align: left; margin-top: 60px">
-    <b>__________________________</b>
-    </p>
-    <p style="font-size: 12pt; text-align: left">
-    <b>${firma}</b>
-    </p>
+        <p style="font-size: 12pt; text-align: left">
+            <b>Quito, ${fechaEntregaOferta}</b>
+        </p>
+        <p style="font-size: 12pt; text-align: left; margin-top: 60px">
+            <b>__________________________</b>
+        </p>
+        <p style="font-size: 12pt; text-align: left">
+            <b>${firma}</b>
+        </p>
     </div>
-
-
 </div>
-
 </body>
-
 </html>
 
 <%--

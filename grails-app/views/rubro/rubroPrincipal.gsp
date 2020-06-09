@@ -26,11 +26,11 @@
 
 <div class="span12 btn-group" role="navigation">
     <a href="#" class="btn  " id="btn_lista">
-        <i class="icon-file"></i>
+        <i class="icon-list-ul"></i>
         Lista
     </a>
     <a href="${g.createLink(action: 'rubroPrincipal')}" class="btn btn-ajax btn-new">
-        <i class="icon-file"></i>
+        <i class="icon-remove"></i>
         Cancelar
     </a>
 <g:if test="${rubro}">

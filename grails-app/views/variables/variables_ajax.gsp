@@ -33,7 +33,7 @@
 <ul>
     %{--<li><a href="#tab-transporte">Variables de Transporte</a></li>--}%
     %{--<li><a href="#tab-factores">Factores</a></li>--}%
-    <li><a href="#tab-indirecto">Costos Indirectos</a></li>
+    <li><a href="#tab-indirecto" style="background-color: #6f5437">Costos Indirectos</a></li>
 </ul>
 
 

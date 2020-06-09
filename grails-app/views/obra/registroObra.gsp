@@ -56,7 +56,7 @@
 
 <div class="row">
     <div class="span12 btn-group" role="navigation" style="margin-bottom: 15px;">
-        <button class="btn" id="lista"><i class="icon-book"></i> Lista</button>
+        <button class="btn" id="lista"><i class="icon-list-ul"></i> Lista</button>
         <g:if test="${obra?.id != null}">
             <button class="btn" id="btnImprimir"><i class="icon-print"></i> Imprimir</button>
 
@@ -71,302 +71,304 @@
 </div>
 
 <g:form class="form-horizontal" name="frmSave-Lugar" action="save">
-<fieldset class="borde" style="padding: 10px;">
-<div class="row">
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Código
-                </span>
-            </div>
+    <fieldset class="borde" style="padding: 10px;">
+        <div class="row">
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Código
+                        </span>
+                    </div>
 
-            <div class="controls">
-                ${obra?.codigo}
-            </div>
-        </div>
-    </div>
-
-    <div class="span6">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Nombre
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.nombre}
+                    <div class="controls">
+                        ${obra?.codigo}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="row">
-    <div class="span10">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Descripción
-                </span>
-            </div>
+        <div class="row">
+            <div class="span11">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Nombre
+                        </span>
+                    </div>
 
-            <div class="controls">
-                ${obra?.descripcion}
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Programa
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.programacion?.descripcion}
+                    <div class="controls">
+                        ${obra?.nombre}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Tipo
-                </span>
-            </div>
+        <div class="row">
+            <div class="span12">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Descripción
+                        </span>
+                    </div>
 
-            <div class="controls">
-                ${obra?.tipoObjetivo?.descripcion}
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Clase
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.claseObra?.descripcion}
+                    <div class="controls">
+                        ${obra?.descripcion}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Referencias
-                </span>
+        <div class="row">
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Programa
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        ${obra?.programacion?.descripcion}
+                    </div>
+                </div>
             </div>
 
-            <div class="controls">
-                ${obra?.referencia}
-            </div>
-        </div>
-    </div>
-</div>
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Tipo
+                        </span>
+                    </div>
 
-<div class="row">
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Cantón
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.comunidad?.parroquia?.canton?.nombre}
-            </div>
-        </div>
-    </div>
-
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Parroquia
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.comunidad?.parroquia?.nombre}
+                    <div class="controls">
+                        ${obra?.tipoObjetivo?.descripcion}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="row">
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Comunidad
-                </span>
+        <div class="row">
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Clase
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        ${obra?.claseObra?.descripcion}
+                    </div>
+                </div>
             </div>
 
-            <div class="controls">
-                ${obra?.comunidad?.nombre}
-            </div>
-        </div>
-    </div>
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Referencias
+                        </span>
+                    </div>
 
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Sitio
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.sitio}
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Barrio
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.barrio}
+                    <div class="controls">
+                        ${obra?.referencia}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Fecha
-                </span>
+        <div class="row">
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Cantón
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        ${obra?.comunidad?.parroquia?.canton?.nombre}
+                    </div>
+                </div>
             </div>
 
-            <div class="controls">
-                <g:formatDate date="${obra?.fechaPreciosRubros}" format="dd-MM-yyyy"/>
-            </div>
-        </div>
-    </div>
-</div>
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Parroquia
+                        </span>
+                    </div>
 
-<div class="row">
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Plazo
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.plazoEjecucionMeses} Mes${obra?.plazoEjecucionMeses == 1 ? '' : 'es'}
-                ${obra?.plazoEjecucionDias} Día${obra?.plazoEjecucionDias == 1 ? '' : 's'}
-            </div>
-        </div>
-    </div>
-
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Anticipo
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.porcentajeAnticipo}%
+                    <div class="controls">
+                        ${obra?.comunidad?.parroquia?.nombre}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="row">
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Coordenadas
-                </span>
+        <div class="row">
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Comunidad
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        ${obra?.comunidad?.nombre}
+                    </div>
+                </div>
             </div>
 
-            <div class="controls">
-                ${obra?.coordenadas}
-            </div>
-        </div>
-    </div>
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Sitio
+                        </span>
+                    </div>
 
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Registrada:
-                </span>
-            </div>
-
-            <div class="controls" style="font-weight:bold ">
-                ${obra?.estado == "N" ? "Acepta modificaciones" : "Registrado"}
-                %{--${obra?.estado}--}%
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
-%{--
-<div class="row">
-    <div class="span5">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Precios para MO y Equipos
-                </span>
-            </div>
-
-            <div class="controls">
-                ${obra?.listaManoObra?.descripcion}
+                    <div class="controls">
+                        ${obra?.sitio}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
---}%
 
+        <div class="row">
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Barrio
+                        </span>
+                    </div>
 
-<div class="row">
-    <div class="span10">
-        <div class="control-group">
-            <div>
-                <span class="control-label label label-inverse">
-                    Observaciones
-                </span>
+                    <div class="controls">
+                        ${obra?.barrio}
+                    </div>
+                </div>
             </div>
 
-            <div class="controls">
-                ${obra?.observaciones}
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Fecha
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        <g:formatDate date="${obra?.fechaPreciosRubros}" format="dd-MM-yyyy"/>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-</fieldset>
+
+        <div class="row">
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Plazo
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        ${obra?.plazoEjecucionMeses} Mes${obra?.plazoEjecucionMeses == 1 ? '' : 'es'}
+                        ${obra?.plazoEjecucionDias} Día${obra?.plazoEjecucionDias == 1 ? '' : 's'}
+                    </div>
+                </div>
+            </div>
+
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Anticipo
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        ${obra?.porcentajeAnticipo}%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Coordenadas
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        ${obra?.coordenadas}
+                    </div>
+                </div>
+            </div>
+
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Estado
+                        </span>
+                    </div>
+
+                    <div class="controls" style="font-weight:bold ">
+                        ${obra?.estado == "N" ? "Acepta modificaciones" : "Registrado"}
+                        %{--${obra?.estado}--}%
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        %{--
+        <div class="row">
+            <div class="span5">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Precios para MO y Equipos
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        ${obra?.listaManoObra?.descripcion}
+                    </div>
+                </div>
+            </div>
+        </div>
+        --}%
+
+
+        <div class="row">
+            <div class="span10">
+                <div class="control-group">
+                    <div>
+                        <span class="control-label label label-inverse">
+                            Observaciones
+                        </span>
+                    </div>
+
+                    <div class="controls">
+                        ${obra?.observaciones}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
 </g:form>
 
 
@@ -560,12 +562,12 @@
             </div>
 
             <div id="datos_matriz" style="text-align: center">
-%{--
-                <span>Seleccione el subpresupuesto:</span>
-                <g:select name="mtariz_sub" from="${subs}" noSelection="['0': 'Todos los subpresupuestos']" optionKey="id" optionValue="descripcion" style="margin-right: 20px"></g:select>
-                <p>Generar con desglose de Transporte <input type="checkbox" id="si_trans" style="margin-top: -3px" checked="true">
-                </p>
---}%
+                %{--
+                                <span>Seleccione el subpresupuesto:</span>
+                                <g:select name="mtariz_sub" from="${subs}" noSelection="['0': 'Todos los subpresupuestos']" optionKey="id" optionValue="descripcion" style="margin-right: 20px"></g:select>
+                                <p>Generar con desglose de Transporte <input type="checkbox" id="si_trans" style="margin-top: -3px" checked="true">
+                                </p>
+                --}%
                 <p>Haga clic en el botón Generar para iniciar el proceso</p>
                 <a href="#" class="btn btn-success" id="ok_matiz">Generar</a>
             </div>
@@ -592,9 +594,9 @@
          39         -> flecha der
          */
         return ((ev.keyCode >= 48 && ev.keyCode <= 57) ||
-                (ev.keyCode >= 96 && ev.keyCode <= 105) ||
-                ev.keyCode == 8 || ev.keyCode == 46 || ev.keyCode == 9 ||
-                ev.keyCode == 37 || ev.keyCode == 39);
+            (ev.keyCode >= 96 && ev.keyCode <= 105) ||
+            ev.keyCode == 8 || ev.keyCode == 46 || ev.keyCode == 9 ||
+            ev.keyCode == 37 || ev.keyCode == 39);
     }
 
     $("#porcentajeAnticipo").keydown(function (ev) {
@@ -603,15 +605,15 @@
 
     }).keyup(function () {
 
-                var enteros = $(this).val();
+        var enteros = $(this).val();
 
-                if (parseFloat(enteros) > 100) {
+        if (parseFloat(enteros) > 100) {
 
-                    $(this).val(100)
+            $(this).val(100)
 
-                }
+        }
 
-            });
+    });
 
     $("#plazo").keydown(function (ev) {
 
@@ -619,9 +621,9 @@
 
     }).keyup(function () {
 
-                var enteros = $(this).val();
+        var enteros = $(this).val();
 
-            });
+    });
 
     $("#latitud").bind({
         keydown: function (ev) {
@@ -894,7 +896,7 @@
                         "Pdf Vae": function () {
                             url += "0";
                             location.href = urlVae;
-                         },
+                        },
                         "Excel Vae": function () {
                             var urlExcelVae = "${createLink(controller:'reportes', action:'imprimirRubrosExcelVae')}?oferente=${session.usuario.id}&obra=${obra?.id}&transporte=";
                             urlExcelVae += "1";
