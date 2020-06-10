@@ -8,16 +8,10 @@
     <link href='${resource(dir: "font/open", file: "stylesheet.css")}' rel='stylesheet' type='text/css'>
     <link href='${resource(dir: "font/tulpen", file: "stylesheet.css")}' rel='stylesheet' type='text/css'>
     <link href="${resource(dir: 'css/bootstrap/css', file: 'bootstrap.css')}" rel="stylesheet">
-
     <link href="${resource(dir: 'css', file: 'font-awesome.css')}" rel="stylesheet">
-
     <link href="${resource(dir: 'css', file: 'mobile2.css')}" rel="stylesheet">
     <script src="${resource(dir: 'js/jquery/plugins', file: 'jquery.highlight.js')}"></script>
-
-    %{--<link href="${resource(dir: 'css/bootstrap/css', file: 'bootstrap-responsive.css')}" rel="stylesheet">--}%
-
     <link href="${resource(dir: 'js/jquery/css/twitBoot', file: 'jquery-ui-1.9.1.custom.min.css')}" rel="stylesheet">
-
     <script src="${resource(dir: 'js', file: 'functions.js')}"></script>
     <link href="${resource(dir: 'css', file: 'custom.css')}" rel="stylesheet">
     <link href="${resource(dir: 'css', file: 'customButtons.css')}" rel="stylesheet">
@@ -53,8 +47,7 @@
                 <i class="icon-minus-sign"></i> Salir
             </a>
 
-            <div class="btn-group" style="margin-top: 20px;">
-            %{--<input type="submit" value="Guardar" class="btn btn-primary">--}%
+            <div class="btn-group">
                 <g:if test="${filePath}">
                     <g:link action="downloadFile" id="${rubro.id}" params="[tipo: tipo]" class="btn btn-info">
                         <i class="icon-download-alt"></i> Descargar
@@ -67,12 +60,11 @@
         <p style="color: #800">No se ha cargado ningún archivo para este rubro</p>
     </g:if>
 </fieldset>
-%{--<g:if test="${ext?.toLowerCase() == 'pdf'}">--}%
+
 <g:if test="${ext == 'pdf'}">
     <div class="alert alert-info">
-        <p>
-            <i class="icon-info-sign icon-2x pull-left"></i>
-            <p style="color: #000; font-size: 14px;">El archivo cargado para este rubro es un pdf. Por favor descárguelo para visualizarlo.</p>
+        <i class="icon-info-sign icon-2x pull-left"></i>
+        <p style="color: #000; font-size: 14px;">El archivo cargado para este rubro es un pdf. Por favor descárguelo para visualizarlo.
         </p>
     </div>
 </g:if>
@@ -86,6 +78,7 @@
         <img src="${resource(dir: 'rubros', file: filePath)}" alt="" style="margin-bottom: 10px;max-width: 600px"/>
     </fieldset>
 </g:elseif>
+
 <script type="text/javascript">
     $("#submit").click(function () {
         $("#frmUpload").submit();

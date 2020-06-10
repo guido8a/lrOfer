@@ -111,9 +111,9 @@
             }
 
             if (key == "foto") {
-                var datosFoto = "Wid=" + $(this).attr("item")
-                var child = window.open('${createLink(controller:"rubro", action:"showFoto")}/' + $(this).attr("item") +
-                        '?tipo=il', 'GADPP', 'width=850,height=800,toolbar=0,resizable=0,menubar=0,scrollbars=1,status=0');
+                var child = window.open('${createLink(controller:"rubro", action:"showFoto")}?id=' + $(this).attr("id") +
+                        '&tipo=il', 'GADPP', 'width=800,height=700,toolbar=0,resizable=0,menubar=0,scrollbars=1,status=0');
+
                 if (child.opener == null)
                     child.opener = self;
                 window.toolbar.visible = false;
@@ -121,8 +121,8 @@
             }
 
             if (key == "espc") {
-                var child = window.open('${createLink(controller:"rubro", action:"showFoto")}/' + $(this).attr("item") +
-                        '?tipo=dt', 'GADPP', 'width=850,height=800,toolbar=0,resizable=0,menubar=0,scrollbars=1,status=0');
+                var child = window.open('${createLink(controller:"rubro", action:"showFoto")}?id=' + $(this).attr("id") +
+                        '&tipo=dt', 'GADPP', 'width=800,height=700,toolbar=0,resizable=0,menubar=0,scrollbars=1,status=0');
                 if (child.opener == null)
                     child.opener = self;
                 window.toolbar.visible = false;

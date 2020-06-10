@@ -591,7 +591,7 @@ class RubroController extends janus.seguridad.Shield {
 
     def showFoto() {
 
-//        println("entro:" + params)
+//        println("params sf:" + params)
 
         def rubro = Item.get(params.id)
         def tipo = params.tipo
@@ -615,23 +615,45 @@ class RubroController extends janus.seguridad.Shield {
             ext = filePath.split("\\.")
             ext = ext[ext.size() - 1]
         }
+
         return [rubro: rubro, ext: ext, tipo: tipo, titulo: titulo, filePath: filePath]
     }
 
     def downloadFile() {
         def rubro = Item.get(params.id)
 
-        def ext = rubro.foto.split("\\.")
+        def ext = ''
+
+        if(params.tipo == 'il'){
+            ext = rubro.foto.split("\\.")
+        }else{
+            ext = rubro.especificaciones.split("\\.")
+        }
+
         ext = ext[ext.size() - 1]
+
         def folder = "rubros"
-        def path = servletContext.getRealPath("/") + folder + File.separatorChar + rubro.foto
+        def path = ''
+
+        if(params.tipo == 'il'){
+            path = servletContext.getRealPath("/") + folder + File.separatorChar + rubro.foto
+        }else{
+            path = servletContext.getRealPath("/") + folder + File.separatorChar + rubro.especificaciones
+        }
 
         def file = new File(path)
-        def b = file.getBytes()
-        response.setContentType(ext == 'pdf' ? "application/pdf" : "image/" + ext)
-        response.setHeader("Content-disposition", "attachment; filename=" + rubro.foto)
-        response.setContentLength(b.length)
-        response.getOutputStream().write(b)
+
+        if(file.exists()){
+            def b = file.getBytes()
+            response.setContentType(ext == 'pdf' ? "application/pdf" : "image/" + ext)
+            response.setHeader("Content-disposition", "attachment; filename=" + (params.tipo == 'il' ? rubro.foto : rubro.especificaciones))
+            response.setContentLength(b.length)
+            response.getOutputStream().write(b)
+        }else{
+            flash.clase = "alert-error"
+            flash.message = "Error: Archivo no encontrado"
+            redirect(action: "showFoto", id: rubro.id, params: [tipo: params.tipo])
+        }
     }
 
     def uploadFile() {
@@ -663,7 +685,15 @@ class RubroController extends janus.seguridad.Shield {
                 def file = new File(pathFile)
                 f.transferTo(file)
 
-                def old = rubro.foto
+                def old
+
+                if(params.tipo == 'il'){
+                    old = rubro.foto
+                }else{
+                    old = rubro.especificaciones
+                }
+
+
                 if (old && old.trim() != "") {
                     def oldPath = servletContext.getRealPath("/") + "rubros/" + old
                     def oldFile = new File(oldPath)
@@ -672,7 +702,12 @@ class RubroController extends janus.seguridad.Shield {
                     }
                 }
 
-                rubro.foto = /*g.resource(dir: "rubros") + "/" + */ fileName
+                if(params.tipo == 'il'){
+                    rubro.foto = /*g.resource(dir: "rubros") + "/" + */ fileName
+                }else{
+                    rubro.especificaciones = /*g.resource(dir: "rubros") + "/" + */ fileName
+                }
+
                 rubro.save(flush: true)
             } else {
                 flash.clase = "alert-error"
@@ -682,11 +717,7 @@ class RubroController extends janus.seguridad.Shield {
             flash.clase = "alert-error"
             flash.message = "Error: Seleccione un archivo JPG, JPEG, GIF, PNG ó PDF"
         }
-        redirect(action: "showFoto", id: rubro.id)
+        redirect(action: "showFoto", id: rubro.id, params: [tipo: params.tipo])
         return
-
-
     }
-
-
 } //fin controller
