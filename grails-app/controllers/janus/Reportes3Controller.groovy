@@ -2001,83 +2001,46 @@ class Reportes3Controller {
 
 def reporteFormula () {
 
-
 //            println("paramsf" + params)
 
     def auxiliar = Auxiliar.get(1)
-
-//        println(auxiliar)
-
     def auxiliarFijo = Auxiliar.get(1)
-
     def oferente = Persona.get(session.usuario.id)
-
     def obra = Obra.get(params.obra)
 
     def sql1 = "SELECT * FROM cncr WHERE obra__id=${obra?.idJanus}"
-
-//        println("sql:" + sql)
-
     def cn1 = dbConnectionService.getConnection()
-
     def conc = cn1.rows(sql1.toString())
 
     def cncrId
 
     conc.each {
-
         cncrId = it?.cncr__id
-
     }
 
     def concurso = janus.pac.Concurso.get(cncrId)
-
     def firmaOferente = Persona.get(session.usuario.id).firma
 
-
-
     def firma
-
     def firmas
-
     def firmaFijaFormu
-
     def cuenta = 0;
-
-
     def formula = FormulaPolinomica.findAllByObra(obra)
-
-//    println("-->>" + formula)
-
     def ps = FormulaPolinomica.findAllByObraAndNumeroIlike(obra, 'p%', [sort: 'numero'])
-
-
-
     def cuadrilla = FormulaPolinomica.findAllByObraAndNumeroIlike(obra, 'c%', [sort: 'numero'])
-//
-//        println("---->>>>>"+ps)
 
     def c
-
     def z = []
-
     def banderafp = 0
 
     if (obra?.formulaPolinomica == null) {
-
         obra?.formulaPolinomica = ""
-
     }
-
 
     def prmsHeaderHoja = [border: Color.WHITE]
     def prmsHeaderHoja4 = [border: Color.WHITE, bordeTop:  "1"]
-
-
     def prmsHeaderHoja2 = [border: Color.WHITE, colspan: 9]
     def prmsHeaderHoja3 = [border: Color.WHITE, colspan: 2]
-
-
     def prmsHeader = [border: Color.WHITE, colspan: 7, bg: new Color(73, 175, 205),
                       align : Element.ALIGN_CENTER, valign: Element.ALIGN_MIDDLE]
     def prmsCellHead2 = [border: Color.WHITE,
@@ -2096,8 +2059,6 @@ def reporteFormula () {
 
     def prms = [prmsHeaderHoja: prmsHeaderHoja, prmsHeader: prmsHeader, prmsHeader2: prmsHeader2,
             prmsCellHead: prmsCellHead, prmsCell: prmsCellCenter, prmsCellLeft: prmsCellLeft, prmsSubtotal: prmsSubtotal, prmsNum: prmsNum, prmsHeaderHoja2: prmsHeaderHoja2, prmsCellRight: prmsCellRight]
-
-
 
     def baos = new ByteArrayOutputStream()
     def name = "formulaPolinomica_" + new Date().format("ddMMyyyy_hhmm") + ".pdf";
@@ -2119,32 +2080,28 @@ def reporteFormula () {
     def pdfw = PdfWriter.getInstance(document, baos);
     document.open();
     document.addTitle("Formula " + new Date().format("dd_MM_yyyy"));
-    document.addSubject("Generado por el sistema Janus");
+    document.addSubject("Generado por el sistema Obras");
     document.addKeywords("documentosObra, janus, presupuesto");
     document.addAuthor("Janus");
     document.addCreator("Tedein SA")
     document.setMargins(40, 20, 20, 20)
 
-
-
     Paragraph headers = new Paragraph();
 
     headers.setAlignment(Element.ALIGN_CENTER);
-    headers.add(new Paragraph("G.A.D. PROVINCIA PICHINCHA", times12bold));
-    addEmptyLine(headers, 1);
+    headers.add(new Paragraph(auxiliar?.titulo ?: '', times12bold));
     headers.add(new Paragraph("PROCESO: " + obra?.codigoConcurso, times12bold));
-    addEmptyLine(headers, 1);
     headers.add(new Paragraph("FÓRMULA POLINÓMICA", times12bold));
     addEmptyLine(headers, 1);
     document.add(headers);
 
     PdfPTable tablaHeader = new PdfPTable(3);
     tablaHeader.setWidthPercentage(90);
-    tablaHeader.setWidths(arregloEnteros([20, 2, 60]))
+    tablaHeader.setWidths(arregloEnteros([10, 2, 78]))
 
-    addCellTabla(tablaHeader, new Paragraph("Nombre del Oferente", times10bold), prmsHeaderHoja)
+    addCellTabla(tablaHeader, new Paragraph("Oferente", times10bold), prmsHeaderHoja)
     addCellTabla(tablaHeader, new Paragraph(" : ", times10bold), prmsHeaderHoja)
-    addCellTabla(tablaHeader, new Paragraph(oferente?.nombre.toUpperCase() + " " + oferente?.apellido.toUpperCase(), times10normal), prmsHeaderHoja2)
+    addCellTabla(tablaHeader, new Paragraph(oferente?.nombre?.toUpperCase() + " " + oferente?.apellido?.toUpperCase(), times10normal), prmsHeaderHoja2)
 
     addCellTabla(tablaHeader, new Paragraph("Proyecto", times10bold), prmsHeaderHoja)
     addCellTabla(tablaHeader, new Paragraph(" : ", times10bold), prmsHeaderHoja)

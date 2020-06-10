@@ -550,45 +550,26 @@ class Reportes2Controller {
 //        println("--Z" + params)
 
         def tipo = "obra"
-
         def contrato = null, lbl =""
-
         def obra = Obra.get(params.id)
 
         def sql = "SELECT * FROM cncr WHERE obra__id=${obra?.idJanus}"
-
-//        println("sql:" + sql)
-
         def cn = dbConnectionService.getConnection()
-
         def conc = cn.rows(sql.toString())
 
         def cncrId
 
         conc.each {
-
             cncrId = it?.cncr__id
-
         }
 
         def concurso = janus.pac.Concurso.get(cncrId)
-
-
         def firma = Persona.get(session.usuario.id).firma
-
-
         def oferente = Persona.get(session.usuario.id)
-
-
-
         def meses = obra.plazoEjecucionMeses + (obra.plazoEjecucionDias > 0 ? 1 : 0)
-
         def detalle = VolumenesObra.findAllByObra(obra, [sort: "orden"])
-
         def precios = [:]
-
         def indirecto = obra.totales / 100
-
         preciosService.ac_rbroObra(obra.id)
 
         detalle.each {

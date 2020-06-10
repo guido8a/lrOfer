@@ -441,11 +441,11 @@
                     <li><a href="${g.createLink(controller: 'cronograma', action: 'cronogramaObra', id: obra?.id)}"><i
                             class="icon-calendar"></i>Cronograma
                     </a></li>
-                    <li>
-                        <g:link controller="variables" action="composicion" id="${obra?.id}"><i
-                                class="icon-paste"></i>Composición
-                        </g:link>
-                    </li>
+%{--                    <li>--}%
+%{--                        <g:link controller="variables" action="composicion" id="${obra?.id}"><i--}%
+%{--                                class="icon-paste"></i>Composición--}%
+%{--                        </g:link>--}%
+%{--                    </li>--}%
                     %{--<li>--}%
                     %{--<g:link controller="documentoObra" action="list" id="${obra.id}">--}%
                     %{--<i class="icon-book"></i>Biblioteca--}%

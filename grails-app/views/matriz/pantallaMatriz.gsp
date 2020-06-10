@@ -78,10 +78,10 @@
         <i class="icon-table"></i>
         Coeficientes fórmula polinómica
     </g:link>
-    <a href="${g.createLink(controller: 'reportes', action: 'imprimeMatriz', id: "${obra}")}" class="btn btn-ajax btn-new" id="imprimir" title="Imprimir">
-        <i class="icon-print"></i>
-        Imprimir
-    </a>
+%{--    <a href="${g.createLink(controller: 'reportes', action: 'imprimeMatriz', id: "${obra}")}" class="btn btn-ajax btn-new" id="imprimir" title="Imprimir">--}%
+%{--        <i class="icon-print"></i>--}%
+%{--        Imprimir--}%
+%{--    </a>--}%
     <input type="text" style="width: 200px;margin-left: 20px;margin-top: 9px;" class="ui-corner-all" id="texto_busqueda">
     <a href="#" class="btn btn-ajax btn-new" id="buscar" title="Buscar">
         <i class="icon-search"></i>
@@ -91,10 +91,10 @@
         <i class="icon-refresh"></i>
         Limpiar selección
     </a>
-    <a href="${g.createLink(controller: 'reportes', action: 'matrizExcel', id: "${obra}")}" class="btn btn-ajax btn-new" id="reset" title="Resetear">
-        <i class="icon-print"></i>
-        a Excel
-    </a>
+%{--    <a href="${g.createLink(controller: 'reportes', action: 'matrizExcel', id: "${obra}")}" class="btn btn-ajax btn-new" id="reset" title="Resetear">--}%
+%{--        <i class="icon-print"></i>--}%
+%{--        a Excel--}%
+%{--    </a>--}%
     %{--<a href="${g.createLink(controller: 'reportes2', action: 'reporteDesgloseEquipos', id: "${obra}")}" class="btn btn-ajax btn-new" id="desglose" title="Desglose Equipos">--}%
         %{--<i class="icon-print"></i>--}%
         %{--Imprimir Desglose--}%

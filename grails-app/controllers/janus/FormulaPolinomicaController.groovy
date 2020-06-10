@@ -124,8 +124,174 @@ class FormulaPolinomicaController extends janus.seguridad.Shield {
         render ok
     }
 
-    def coeficientes() {
+//    def coeficientes() {
+//
 //        println "coef " + params
+//
+//        if (!params.tipo) {
+//            params.tipo = 'p'
+//        }
+//
+//        if (params.tipo == 'p') {
+//            params.filtro = "1"
+//        } else if (params.tipo == 'c') {
+//            params.filtro = '2'
+//        }
+//
+//        def cn = dbConnectionService.getConnection()
+//        def persona = Persona.get(session.usuario.id)
+//        def sqlMatriz = "select count(*) cuantos from mfcl where obra__id=${params.id}"
+//        def matriz = cn.rows(sqlMatriz.toString())[0].cuantos
+//        if (matriz == 0) {
+//            flash.message = "Tiene que crear la matriz antes de ver los coeficientes"
+//            redirect(controller: "obra", action: "registroObra", params: ["obra": params.id])
+//            return
+//        } else {
+////            println "VERIFICA"
+//            def sqlValidacion = "select count(*) cuantos from vlobitem where obra__id = ${params.id} and voitcoef is not null"
+////            println sqlValidacion
+//            def validacion = cn.rows(sqlValidacion.toString())[0].cuantos
+////            println "validacion: " + validacion
+//            if (validacion == 0) {
+//                def sqlSubPresupuestos = "select distinct(sbpr__id) id from vlob where obra__id = ${params.id}"
+////                println sqlSubPresupuestos
+//                cn.eachRow(sqlSubPresupuestos.toString()) { row ->
+////                    println ">>" + row
+//                    def cn2 = dbConnectionService.getConnection()
+//                    def idSp = row.id
+////                    def sqlLlenaDatos = "select * from sp_fpoli(${params.id}, ${idSp})"
+////                    println "sqlLlenaDatos: $sqlLlenaDatos"
+////                    cn2.execute(sqlLlenaDatos.toString())
+////                            { row2 ->
+////                    cn2.eachRow(sqlLlenaDatos.toString()) { row2 ->
+////                        println "++" + row2
+////                    }
+//                }
+//            }
+//
+//            def data = []
+//
+//            def obra = Obra.get(params.id)
+//            def sbpr = SubPresupuesto.get(params.sbpr)
+////            def fp = FormulaPolinomica.findAllByObraAndSubPresupuesto(obra, sbpr, [sort: "numero"])
+//            def fp = FormulaPolinomica.findAllByObra(obra)
+////            println "fp: " + fp
+//            def total = 0
+//            def cof = []
+//
+//            fp.each { f ->
+//                if (f.numero =~ params.tipo) {
+////                    println("numero " + f.numero)
+//                    cof += f
+//                    def children = ItemsFormulaPolinomica.findAllByFormulaPolinomica(f)
+////                    println("---------------------- " + children)
+//                    def mapFormula = [
+//                            data: f.numero,
+//                            attr: [
+//                                    id: "fp_" + f.id,
+//                                    numero: f.numero,
+////                                    nombre: (f.valor > 0 || children.size() > 0) ? f.indice?.descripcion : "",
+//                                    nombre: (f.valor > 0 || children.size() > 0 || f.numero == "p01") ? f.indice?.descripcion : "",
+//                                    valor: g.formatNumber(number: f.valor, maxFractionDigits: 3, minFractionDigits: 3),
+////                                    valor: f.valor,
+//                                    rel: "fp"
+//                            ]
+//                    ]
+//                    total += f.valor
+//                    if (children.size() > 0) {
+//                        mapFormula.children = []
+//                        children.each { ch ->
+//                            def sqlPrecio = "SELECT DISTINCT v.voitpcun precio, v.voitgrpo grupo " +
+//                                    "FROM vlobitem v\n" +
+//                                    "WHERE item__id = ${ch.itemId} AND v.obra__id = ${obra.id};"
+//
+//                            def precio = 0, grupo = 0
+//                            cn.eachRow(sqlPrecio.toString()) { row ->
+//                                precio = row.precio
+//                                grupo = row.grupo
+//                            }
+//
+//                            def mapItem = [
+//                                    data: " ",
+//                                    attr: [
+//                                            id: "it_" + ch.id,
+//                                            numero: ch.item.codigo,
+//                                            nombre: ch.item.nombre,
+//                                            item: ch.itemId,
+//                                            precio: precio,
+//                                            grupo: grupo,
+//                                            valor: g.formatNumber(number: ch.valor, maxFractionDigits: 5, minFractionDigits: 5),
+////                                            valor: ch.valor,
+//                                            rel: "it"
+//                                    ]
+//                            ]
+//                            mapFormula.children.add(mapItem)
+//                        }
+//                    }
+//
+//                    data.add(mapFormula)
+//                }
+//            }
+////            println "data: " + data
+////            println "sbpr: " + sbpr
+//            def json = new JsonBuilder(data)
+////            println json.toPrettyString()
+///*
+//            def sql = "SELECT distinct\n" +
+////                    "  v.voit__id      id,\n" +
+//                    "  i.item__id        iid,\n" +
+//                    "  i.itemcdgo        codigo,\n" +
+//                    "  i.itemnmbr        item,\n" +
+//                    "  v.voitpcun        precio,\n" +
+//                    "  v.voitgrpo        grupo,\n" +
+//                    "  v.voitcoef        aporte\n" +
+//                    "FROM vlobitem v\n" +
+//                    "  INNER JOIN item i ON v.item__id = i.item__id\n" +
+//                    "WHERE v.obra__id = ${obra.id} AND voitgrpo IN (${params.filtro})\n and v.item__id NOT IN (SELECT\n" +
+//                    "      t.item__id FROM itfp t\n" +
+//                    "      INNER JOIN fpob f ON t.fpob__id = f.fpob__id AND f.obra__id = ${obra.id}) order by v.voitcoef desc;"
+//*/
+//            def sql = ""
+//            if (params.tipo == 'p') {
+//                sql = "SELECT item.item__id iid, itemcdgo codigo, item.itemnmbr item, grpo__id grupo, valor aporte, 0 precio " +
+//                        "from item, dprt, sbgr, mfcl, mfvl " +
+//                        "where mfcl.obra__id = ${params.id} and mfcl.sbpr__id = ${sbpr?.id} and " +
+//                        "mfcl.clmndscr = item.item__id || '_T' and " +
+//                        "dprt.dprt__id = item.dprt__id and sbgr.sbgr__id = dprt.sbgr__id and " +
+//                        "grpo__id <> 2 and " +
+//                        "mfvl.obra__id = mfcl.obra__id and mfvl.sbpr__id = mfcl.sbpr__id and " +
+//                        "mfvl.clmncdgo = mfcl.clmncdgo and " +
+//                        "mfvl.codigo = 'sS3' and item.item__id not in (select item__id from itfp, fpob " +
+//                        "where itfp.fpob__id = fpob.fpob__id and obra__id = ${params.id} and sbpr__id = ${sbpr?.id}) " +
+//                        "order by valor desc"
+//            } else {
+//                sql = "SELECT item.item__id iid, itemcdgo codigo, item.itemnmbr item, grpo__id grupo, valor aporte, 0 precio " +
+//                        "from item, dprt, sbgr, mfcl, mfvl " +
+//                        "where mfcl.obra__id = ${params.id} and mfcl.sbpr__id = ${sbpr?.id} and " +
+//                        "mfcl.clmndscr = item.item__id || '_T' and " +
+//                        "dprt.dprt__id = item.dprt__id and sbgr.sbgr__id = dprt.sbgr__id and " +
+//                        "grpo__id = 2 and " +
+//                        "mfvl.obra__id = mfcl.obra__id and mfvl.sbpr__id = mfcl.sbpr__id and " +
+//                        "mfvl.clmncdgo = mfcl.clmncdgo and " +
+//                        "mfvl.codigo = 'sS5' and item.item__id not in (select item__id from itfp, fpob " +
+//                        "where itfp.fpob__id = fpob.fpob__id and obra__id = ${params.id} and sbpr__id = ${sbpr?.id}) " +
+//                        "order by valor desc"
+//            }
+//
+//            def rows = cn.rows(sql.toString())
+//
+//            def duenoObra = esDuenoObra(obra) ? 1 : 0
+//
+//            [obra: obra, json: json, tipo: params.tipo, rows: rows, total: total, subpre: sbpr.id, cof: cof?.numero, duenoObra: duenoObra, persona: persona]
+//        }
+//    }
+
+//    def esDuenoObra(obra) {
+//        return obraService.esDuenoObra(obra, session.usuario.id)
+//    }
+
+    def coeficientes() {
+        println "coef " + params
 
         if (!params.tipo) {
             params.tipo = 'p'
