@@ -52,13 +52,13 @@ class LoginController {
     }
 
     def validar() {
-//        println "validad "+params
+        println "validar "+params
         def user = Persona.withCriteria {
             eq("login", params.login)
             eq("password", params.pass.encodeAsMD5())
             eq("activo", 1)
         }
-//        println "user "+user
+        println "user "+user
 
         if (user.size() == 0) {
             flash.message = "No se ha encontrado el usuario"

@@ -34,15 +34,15 @@
 <body style="background-color: #d7d7d7">
 
 <div class="dialog ui-corner-all" style="height: 595px;background: #d9d9d9;;padding: 10px;width: 910px; margin: auto;">
-    <div style="text-align: center;"><h1 class="titl" style="font-size: 26px;">SEP - GADPP</h1>
-        <h1 class="titl" style="font-size: 20px;">SEGUIMIENTO Y EJECUCIÓN DE PROYECTOS DE OBRAS Y CONSULTORÍAS<br>
-            GOBIERNO AUTÓNOMO DESCENTRALIZADO PROVINCIA DE PICHINCHA</h1>
+    <div style="text-align: center;"><h1 class="titl" style="font-size: 26px;">SISTEMA DE OBRAS - OFERENTES</h1>
+        <h1 class="titl" style="font-size: 20px;">SEGUIMIENTO Y EJECUCIÓN DE OBRAS<br>
+            GOBIERNO AUTÓNOMO DESCENTRALIZADO PROVINCIA DE LOS RÍOS</h1>
 
 
     <g:form class="well form-horizontal span" action="savePer" name="frmLogin"
             style="border: 5px solid #6a5830; background:#c7c7c5;color: #939Aa2; width: 300px; margin-left: 240px; margin-top: 40px; position: relative; padding-left: 100px">
         <p class="css-vertical-text tituloGrande"
-           style="left: 12px;;font-family: 'Tulpen One',cursive;font-weight: bold;font-size: 35px; color:#334;">Sistema SEP-Oferentes</p>
+           style="left: 12px;;font-family: 'Tulpen One',cursive;font-weight: bold;font-size: 35px; color:#334;">Obras-Oferentes</p>
 
         <div class="linea" style="height: 95%;left: 45px; border-left-color: #334"></div>
         <fieldset>
