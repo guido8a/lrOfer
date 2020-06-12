@@ -133,8 +133,8 @@
 //            "edit": {name: "Editar", icon: "edit"},
             "print": {name: "Imprimir", icon: "print"},
             "vae": {name: "Imprimir Vae", icon: "print"},
-            "foto": {name: "Ilustración", icon: "doc"},
-            "espc": {name: "Especificaciones", icon: "doc"}
+//            "foto": {name: "Ilustración", icon: "doc"},
+//            "espc": {name: "Especificaciones", icon: "doc"}
         }
     });
 
