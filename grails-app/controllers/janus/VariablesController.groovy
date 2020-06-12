@@ -23,7 +23,15 @@ class VariablesController {
                 volquetes = Item.findAllByDepartamento(it)
         }
 */
-       [choferes: choferes, volquetes: volquetes, obra: obra, par: par]
+
+        def total1 = (obra?.indiceCostosIndirectosObra ?: 0) + (obra?.administracion ?: 0) + (obra?.indiceAlquiler ?: 0) +
+                (obra?.indiceCostosIndirectosVehiculos ?: 0) + (obra?.indiceCostosIndirectosTimbresProvinciales ?: 0)  +
+                (obra?.indiceCostosIndirectosPromocion ?: 0) + (obra?.indiceCostosIndirectosGarantias ?: 0)  +
+                (obra?.indiceSeguros ?: 0) + (obra?.indiceCostosIndirectosCostosFinancieros ?: 0) +
+                (obra?.indiceSeguridad ?: 0)
+
+
+       [choferes: choferes, volquetes: volquetes, obra: obra, par: par, total1: total1]
     }
 
     def saveVar_ajax() {

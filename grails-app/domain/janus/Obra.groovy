@@ -123,6 +123,14 @@ class Obra implements Serializable {
     String memoSif
     String estadoSif
 
+    double indiceAlquiler = 0
+    double indiceProfesionales = 0
+    double indiceSeguros = 0
+    double indiceSeguridad = 0
+    double indiceCampo = 0
+    double indiceCampamento = 0
+    double indiceGastoObra = 0
+
     static mapping = {
         table 'obra'
         cache usage: 'read-write', include: 'non-lazy'
@@ -249,6 +257,13 @@ class Obra implements Serializable {
             estadoSif column: 'obraetsf'
             oferente column: 'ofrt__id'
 
+            indiceAlquiler column: 'indialqr'
+            indiceProfesionales column: 'indiprof'
+            indiceSeguros column: 'indimate'
+            indiceSeguridad column: 'indisgro'
+            indiceCampo column: 'indicmpo'
+            indiceCampamento column: 'indicmpm'
+            indiceGastoObra column: 'indigaob'
         }
     }
     static constraints = {
