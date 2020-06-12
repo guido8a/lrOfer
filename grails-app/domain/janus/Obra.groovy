@@ -56,7 +56,7 @@ class Obra implements Serializable {
     int indicador
     double indiceGastosGenerales
     double impreso
-    double indiceUtilidad
+    double  indiceUtilidad
     int contrato
     double totales
     double valor

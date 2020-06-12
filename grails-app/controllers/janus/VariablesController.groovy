@@ -30,8 +30,14 @@ class VariablesController {
                 (obra?.indiceSeguros ?: 0) + (obra?.indiceCostosIndirectosCostosFinancieros ?: 0) +
                 (obra?.indiceSeguridad ?: 0)
 
+        def total2 = (obra?.indiceCostosIndirectosObra ?: 0) + (obra?.administracion ?: 0) + (obra?.indiceAlquiler ?: 0) +
+                (obra?.indiceCostosIndirectosVehiculos ?: 0) + (obra?.indiceCostosIndirectosTimbresProvinciales ?: 0)  +
+                (obra?.indiceCostosIndirectosPromocion ?: 0) + (obra?.indiceCostosIndirectosGarantias ?: 0)  +
+                (obra?.indiceSeguros ?: 0) + (obra?.indiceCostosIndirectosCostosFinancieros ?: 0) +
+                (obra?.indiceSeguridad ?: 0) + (obra?.indiceUtilidad ?: 0)
 
-       [choferes: choferes, volquetes: volquetes, obra: obra, par: par, total1: total1]
+
+       [choferes: choferes, volquetes: volquetes, obra: obra, par: par, total1: total1, total2: total2]
     }
 
     def saveVar_ajax() {

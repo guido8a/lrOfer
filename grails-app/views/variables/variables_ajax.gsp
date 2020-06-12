@@ -188,9 +188,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceCostosIndirectosObra" class="inputVar sum2 num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosObra), maxFractionDigits: 2,
-                                 minFractionDigits: 2, format: '##,##0')}" tabindex="1" readonly=""/>
+%{--            <g:textField type="text" name="indiceCostosIndirectosObra" class="inputVar sum2 num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosObra), maxFractionDigits: 2,--}%
+%{--                                 minFractionDigits: 2, format: '##,##0')}" tabindex="1" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.indiceCostosIndirectosObra), maxFractionDigits: 2,
+                minFractionDigits: 2, format: '##,##0')}</label>
         </div>
 
         <div class="span4">
@@ -198,9 +200,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceCostosIndirectosGarantias" class="inputVar num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosGarantias),
-                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" tabindex="7" readonly=""/>
+%{--            <g:textField type="text" name="indiceCostosIndirectosGarantias" class="inputVar num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosGarantias),--}%
+%{--                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" tabindex="7" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.indiceCostosIndirectosGarantias),
+                maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}</label>
         </div>
     </div>
 
@@ -210,9 +214,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="administracion" class="inputVar sum1 num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.administracion), maxFractionDigits: 2,
-                                 minFractionDigits: 2, format: '##,##0')}" tabindex="2" readonly=""/>
+%{--            <g:textField type="text" name="administracion" class="inputVar sum1 num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.administracion), maxFractionDigits: 2,--}%
+%{--                                 minFractionDigits: 2, format: '##,##0')}" tabindex="2" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.administracion), maxFractionDigits: 2,
+                minFractionDigits: 2, format: '##,##0')}</label>
         </div>
 
         <div class="span4">
@@ -220,9 +226,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceSeguros" class="inputVar  num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceSeguros ?: 0),
-                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}"readonly="" />
+%{--            <g:textField type="text" name="indiceSeguros" class="inputVar  num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceSeguros ?: 0),--}%
+%{--                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}"readonly="" />--}%
+            <label>${g.formatNumber(number: (obra?.indiceSeguros ?: 0),
+                maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}</label>
         </div>
     </div>
 
@@ -232,9 +240,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceAlquiler" class="inputVar sum1 num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceAlquiler ?: 0), maxFractionDigits: 2,
-                                 minFractionDigits: 2, format: '##,##0')}" tabindex="3" readonly=""/>
+%{--            <g:textField type="text" name="indiceAlquiler" class="inputVar sum1 num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceAlquiler ?: 0), maxFractionDigits: 2,--}%
+%{--                                 minFractionDigits: 2, format: '##,##0')}" tabindex="3" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.indiceAlquiler ?: 0), maxFractionDigits: 2,
+                minFractionDigits: 2, format: '##,##0')}</label>
         </div>
 
         <div class="span4">
@@ -242,9 +252,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceCostosIndirectosCostosFinancieros" class="inputVar num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosCostosFinancieros),
-                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" tabindex="8" readonly=""/>
+%{--            <g:textField type="text" name="indiceCostosIndirectosCostosFinancieros" class="inputVar num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosCostosFinancieros),--}%
+%{--                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" tabindex="8" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.indiceCostosIndirectosCostosFinancieros),
+                maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}</label>
         </div>
     </div>
 
@@ -254,9 +266,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceCostosIndirectosVehiculos" class="inputVar sum1 num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosVehiculos),
-                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" tabindex="4" readonly=""/>
+%{--            <g:textField type="text" name="indiceCostosIndirectosVehiculos" class="inputVar sum1 num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosVehiculos),--}%
+%{--                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" tabindex="4" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.indiceCostosIndirectosVehiculos),
+                maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}</label>
         </div>
 
         <div class="span4">
@@ -264,9 +278,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceSeguridad" class="inputVar num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceSeguridad ?: 0), maxFractionDigits: 2,
-                                 minFractionDigits: 2, format: '##,##0')}" tabindex="9" readonly=""/>
+%{--            <g:textField type="text" name="indiceSeguridad" class="inputVar num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceSeguridad ?: 0), maxFractionDigits: 2,--}%
+%{--                                 minFractionDigits: 2, format: '##,##0')}" tabindex="9" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.indiceSeguridad ?: 0), maxFractionDigits: 2,
+                minFractionDigits: 2, format: '##,##0')}</label>
         </div>
     </div>
 
@@ -276,18 +292,22 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceCostosIndirectosTimbresProvinciales" class="inputVar sum1 num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosTimbresProvinciales),
-                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" tabindex="6" readonly=""/>
+%{--            <g:textField type="text" name="indiceCostosIndirectosTimbresProvinciales" class="inputVar sum1 num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosTimbresProvinciales),--}%
+%{--                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" tabindex="6" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.indiceCostosIndirectosTimbresProvinciales),
+                maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}</label>
         </div>
 
         <div class="span4 bold">
             Gasto Administración de Obra
         </div>
         <div class="span2">
-            <g:textField type="text" name="indiceGastoObra" style="font-weight: bold" class="inputVar sum2 num"
-                         value="${g.formatNumber(number: (total1 ?: 0), maxFractionDigits: 2, minFractionDigits: 2,
-                                 format: '##,##0')}" tabindex="10" readonly=""/>
+%{--            <g:textField type="text" name="indiceGastoObra" style="font-weight: bold" class="inputVar sum2 num"--}%
+%{--                         value="${g.formatNumber(number: (total1 ?: 0), maxFractionDigits: 2, minFractionDigits: 2,--}%
+%{--                                 format: '##,##0')}" tabindex="10" readonly=""/>--}%
+            <label>${g.formatNumber(number: (total1 ?: 0), maxFractionDigits: 2, minFractionDigits: 2,
+                format: '##,##0')}</label>
         </div>
     </div>
 
@@ -297,9 +317,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceCostosIndirectosPromocion" class="inputVar sum2 num sumAO sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosPromocion) ?: 0,
-                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" readonly=""/>
+%{--            <g:textField type="text" name="indiceCostosIndirectosPromocion" class="inputVar sum2 num sumAO sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceCostosIndirectosPromocion) ?: 0,--}%
+%{--                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.indiceCostosIndirectosPromocion) ?: 0,
+                maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}</label>
         </div>
 
         <div class="span4">
@@ -307,9 +329,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" name="indiceUtilidad" class="inputVar sum2 num sumTI"
-                         value="${g.formatNumber(number: (obra?.indiceUtilidad) ?: 0,
-                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" readonly=""/>
+%{--            <g:textField type="text" name="indiceUtilidad" class="inputVar sum2 num sumTI"--}%
+%{--                         value="${g.formatNumber(number: (obra?.indiceUtilidad) ?: 0,--}%
+%{--                                 maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}" readonly=""/>--}%
+            <label>${g.formatNumber(number: (obra?.indiceUtilidad) ?: 0,
+                maxFractionDigits: 2, minFractionDigits: 2, format: '##,##0')}</label>
         </div>
     </div>
     <div class="row-fluid"  style="margin-top: 10px;">
@@ -324,9 +348,11 @@
         </div>
 
         <div class="span2">
-            <g:textField type="text" style="font-weight: bold" name="totales" class="inputVar num"
-                         value="${g.formatNumber(number: (obra?.totales) ?: 0, maxFractionDigits: 2,
-                                 minFractionDigits: 2, format: '##,##0')}" readonly=""/>
+%{--            <g:textField type="text" style="font-weight: bold" name="totales" class="inputVar num"--}%
+%{--                         value="${g.formatNumber(number: (obra?.totales) ?: 0, maxFractionDigits: 2,--}%
+%{--                                 minFractionDigits: 2, format: '##,##0')}" readonly=""/>--}%
+            <label>${g.formatNumber(number: (total2 ?: 0), maxFractionDigits: 2,
+                minFractionDigits: 2, format: '##,##0')}</label>
         </div>
     </div>
     <div>
@@ -384,42 +410,42 @@
                 ev.keyCode == 37 || ev.keyCode == 39);
     }
 
-    $(".sum1, .sum2, .num").keydown(function (ev) {
-        if (ev.keyCode == 190 || ev.keyCode == 188) {
-            if ($(this).val().indexOf(".") > -1) {
-                return false
-            }
-        }
-        return validarNum(ev);
-    });
-
-    function suma(items, update) {
-        var sum1 = 0;
-        items.each(function () {
-            sum1 += parseFloat($(this).val());
-        });
-        update.val(number_format(sum1, 2, ".", ""));
-    }
+    // $(".sum1, .sum2, .num").keydown(function (ev) {
+    //     if (ev.keyCode == 190 || ev.keyCode == 188) {
+    //         if ($(this).val().indexOf(".") > -1) {
+    //             return false
+    //         }
+    //     }
+    //     return validarNum(ev);
+    // });
+    //
+    // function suma(items, update) {
+    //     var sum1 = 0;
+    //     items.each(function () {
+    //         sum1 += parseFloat($(this).val());
+    //     });
+    //     update.val(number_format(sum1, 2, ".", ""));
+    // }
 
 
 
 
 
     $(function () {
-        $(".sum1").keyup(function (ev) {
-            suma($(".sum1"), $("#indiceGastosGenerales"));
-            suma($(".sum2"), $("#totales"));
-        }).blur(function () {
-                    suma($(".sum1"), $("#indiceGastosGenerales"));
-                    suma($(".sum2"), $("#totales"));
-                });
-        $(".sum2").keyup(function (ev) {
-            suma($(".sum2"), $("#totales"));
-        }).blur(function () {
-                    suma($(".sum2"), $("#totales"));
-                });
-        $(".sum1").blur();
-        $(".sum2").blur();
+        // $(".sum1").keyup(function (ev) {
+        //     suma($(".sum1"), $("#indiceGastosGenerales"));
+        //     suma($(".sum2"), $("#totales"));
+        // }).blur(function () {
+        //             suma($(".sum1"), $("#indiceGastosGenerales"));
+        //             suma($(".sum2"), $("#totales"));
+        //         });
+        // $(".sum2").keyup(function (ev) {
+        //     suma($(".sum2"), $("#totales"));
+        // }).blur(function () {
+        //             suma($(".sum2"), $("#totales"));
+        //         });
+        // $(".sum1").blur();
+        // $(".sum2").blur();
         $("#tabs").tabs({
             heightStyle: "fill"
         });
