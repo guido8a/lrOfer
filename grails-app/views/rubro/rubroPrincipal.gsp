@@ -55,6 +55,7 @@
         Excel Vae
     </a>
     </g:if>
+%{--
     <g:if test="${rubro}">
         <a href="#" id="detalle" class="btn btn-ajax btn-new" >
             <i class="icon-list"></i>
@@ -69,6 +70,7 @@
         </a>
 
     </g:if>
+--}%
 </div>
 
 
@@ -100,8 +102,7 @@
             </div>
             <div class="span2" style="width: 60px;">
                 Unidad
-                %{--<g:select name="rubro.unidad.id" from="${janus.Unidad.list()}" class="span12" optionKey="id" optionValue="descripcion" value="${rubro?.unidad?.id}" readonly=""/>--}%
-                <input type="text" name="unidad.id" class="span72" value="${rubro?.unidad?.descripcion}" readonly="" style="width:60px;">
+                <input type="text" name="unidad.id" class="span2" value="${rubro?.unidad?.descripcion}" readonly="" style="width:100px;">
             </div>
         </div>
         <div class="row-fluid">
@@ -343,154 +344,6 @@
 
     <div class="modal-footer" id="modalFooter-detalle">
         <a href="#"id="save-espc" class="btn btn-info">Guardar</a>
-    </div>
-</div>
-<div class="modal large hide fade " id="modal-transporte" style=";overflow: hidden;">
-    <div class="modal-header btn-primary">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-
-        <h3 id="modal_trans_title" >
-            Variables de transporte
-        </h3>
-    </div>
-
-    <div class="modal-body" id="modal_trans_body">
-        <div class="row-fluid">
-            <div class="span2">
-                Volquete
-            </div>
-            <div class="span5">
-                <g:select name="volquetes" from="${volquetes}" optionKey="id" optionValue="nombre" id="cmb_vol" noSelection="${['-1':'Seleccione']}" value="${aux.volquete.id}"></g:select>
-            </div>
-            <div class="span2">
-                Costo
-            </div>
-            <div class="span3">
-                <input type="text" style="width: 60px;text-align: right" disabled="" id="costo_volqueta">
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span2">
-                Chofer
-            </div>
-            <div class="span5">
-                <g:select name="volquetes" from="${choferes}" optionKey="id" optionValue="nombre" id="cmb_chof" style="" noSelection="${['-1':'Seleccione']}" value="${aux.chofer.id}" ></g:select>
-            </div>
-            <div class="span2">
-                Costo
-            </div>
-            <div class="span3">
-                <input type="text" style="width: 60px;text-align: right" disabled="" id="costo_chofer" >
-            </div>
-        </div>
-        <div class="row-fluid" style="border-bottom: 1px solid black;margin-bottom: 10px">
-            <div class="span6">
-                <b>Distancia peso</b>
-                %{--<input type="text" style="width: 50px;" id="dist_peso" value="0.00">--}%
-            </div>
-            <div class="span5" style="margin-left: 30px;">
-                <b>Distancia volumen</b>
-                %{--<input type="text" style="width: 50px;" id="dist_vol" value="0.00">--}%
-            </div>
-        </div>
-
-        <div class="row-fluid">
-            <div class="span2">
-                Canton
-            </div>
-            <div class="span3">
-                <input type="text" style="width: 50px;" id="dist_p1" value="0.00">
-            </div>
-            <div class="span4">
-                Materiales Petreos Hormigones
-            </div>
-            <div class="span3">
-                <input type="text" style="width: 50px;" id="dist_v1" value="0.00">
-            </div>
-
-        </div>
-        <div class="row-fluid">
-            <div class="span2">
-                Especial
-            </div>
-            <div class="span3">
-                <input type="text" style="width: 50px;" id="dist_p2" value="0.00">
-            </div>
-            <div class="span4">
-                Materiales Mejoramiento
-            </div>
-            <div class="span3">
-                <input type="text" style="width: 50px;" id="dist_v2" value="0.00">
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span5">
-
-            </div>
-            <div class="span4">
-                Materiales Carpeta Asfáltica
-            </div>
-            <div class="span3">
-                <input type="text" style="width: 50px;" id="dist_v3" value="0.00">
-            </div>
-        </div>
-        <div class="row-fluid" style="border-bottom: 1px solid black;margin-bottom: 10px">
-            <div class="span6">
-                <b>Listas de precios</b>
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span1">
-                Canton
-            </div>
-            <div class="span4">
-                <g:select name="item.ciudad.id" from="${janus.Lugar.findAll('from Lugar  where tipoLista=1')}" optionKey="id" optionValue="descripcion" class="span10" id="lista_1" noSelection="['-1':'Seleccione..']"/>
-            </div>
-            <div class="span3">
-                Petreos Hormigones
-            </div>
-            <div class="span4">
-                <g:select name="item.ciudad.id" from="${janus.Lugar.findAll('from Lugar  where tipoLista=3')}" optionKey="id" optionValue="descripcion" class="span10" id="lista_3" noSelection="['-1':'Seleccione..']"/>
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span1">
-                Especial
-            </div>
-            <div class="span4">
-                <g:select name="item.ciudad.id" from="${janus.Lugar.findAll('from Lugar  where tipoLista=2')}" optionKey="id" optionValue="descripcion" class="span10" id="lista_2" noSelection="['-1':'Seleccione..']"/>
-            </div>
-
-            <div class="span3">
-                Mejoramiento
-            </div>
-            <div class="span4">
-                <g:select name="item.ciudad.id" from="${janus.Lugar.findAll('from Lugar  where tipoLista=4')}" optionKey="id" optionValue="descripcion" class="span10" id="lista_4" noSelection="['-1':'Seleccione..']"/>
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span5"></div>
-            <div class="span3">
-                Carpeta Asfáltica
-            </div>
-            <div class="span4">
-                <g:select name="item.ciudad.id" from="${janus.Lugar.findAll('from Lugar  where tipoLista=5')}" optionKey="id" optionValue="descripcion" class="span10" id="lista_5" noSelection="['-1':'Seleccione..']"/>
-            </div>
-        </div>
-
-    </div>
-    <input type="hidden" id="totMat_h">
-
-    <div class="modal-footer" id="modal_trans_footer">
-        <a href="#" data-dismiss="modal" class="btn btn-primary">OK</a>
-    </div>
-
-    <div id="imprimirTransporteDialog">
-        <fieldset>
-            <div class="span3">
-                Desea imprimir el reporte incluido transporte?
-            </div>
-        </fieldset>
     </div>
 </div>
 
