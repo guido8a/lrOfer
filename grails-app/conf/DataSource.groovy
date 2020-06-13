@@ -17,7 +17,8 @@ environments {
     development {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:postgresql://127.0.0.1:5432/oferentes"
+//            url = "jdbc:postgresql://127.0.0.1:5432/oferentes"
+            url = "jdbc:postgresql://127.0.0.1:5432/ofrt_brre"
             username = "postgres"
             password = "postgres"
         }
@@ -39,8 +40,8 @@ environments {
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true
-               initialSize = 5
-               maxActive = 50
+               initialSize = 1
+               maxActive = 5
                minIdle = 5
                maxIdle = 25
                maxWait = 10000
