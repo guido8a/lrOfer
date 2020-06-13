@@ -117,7 +117,7 @@
 
     <div class="archivo">
         Le recomendamos descargar y leer el
-        <a  href="${createLink(uri: '/Manual sep-oferentes.pdf')}"><img src="${resource(dir: 'images',
+        <a  href="${createLink(uri: '/Manual oferentes.pdf')}"><img src="${resource(dir: 'images',
             file: 'pdf_pq.png')}"/>manual de usuario </a>
         antes de ingresar a nuestro sistema.
     </div>
